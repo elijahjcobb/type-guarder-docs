@@ -28,11 +28,11 @@ const config: DocsThemeConfig = {
   head: (
     <>
       <title>type-guarder</title>
-      <link href="https://type-guarder.elijahcobb.app/icon.svg" rel="icon" type="image/svg+xml" />
+      <link href="https://type-guarder.com/icon.svg" rel="icon" type="image/svg+xml" />
       <meta property="og:title" content="type-guarder" />
       <meta property="description" content="A simple, powerful and flexible runtime type checker for TypeScript." />
       <meta property="og:description" content="A simple, powerful and flexible runtime type checker for TypeScript." />
-      <meta property="og:url" content="type-guarder.elijahcobb.app" />
+      <meta property="og:url" content="type-guarder.com" />
     </>
 
   )
