@@ -6,6 +6,22 @@ A **simple**, **powerful** and **flexible** runtime type checker for TypeScript.
 - Automatically access typed values
 - Support for custom types
 
+## Install
+
+Install with your favorite package manager:
+
+```bash copy
+pnpm i type-guarder
+```
+
+Import `T` from `type-guarder`:
+
+```ts copy
+import { T } from "type-guarder";
+
+T.string().conforms("Hello World!"); // true
+```
+
 ## tldr
 
 ```ts copy
