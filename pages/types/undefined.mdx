@@ -1,0 +1,15 @@
+# Undefined
+
+A value can conform to a boolean IFF it is `undefined`.
+
+> This base type isn't very helpful, but can be combined with [Union](/types/union) types to create more complex types. See [Undefinable](/types/undefinable) for an example.
+
+## Usage
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Undefined().conforms(undefined); // true
+T.Undefined().conforms(null); // false
+T.Undefined().conforms("Hello, world!"); // false
+```

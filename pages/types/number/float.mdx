@@ -1,0 +1,24 @@
+# Float
+
+A value can conform to a integer IFF its `typeof` is `"number"` and it has decimal places.
+
+## Usage
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Float().conforms(123); // false
+T.Float().conforms(3.14); // true
+T.Float().conforms("Hello, world!"); // false
+```
+
+## Options
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Float({ min: 10 }).conforms(3); // false
+T.Float({ max: 4 }).conforms(3); // false
+T.Float({ max: 4 }).conforms(3.14); // true
+T.Float({ min: 2, max: 4 }).conforms(3.14); // true
+```

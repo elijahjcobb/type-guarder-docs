@@ -1,0 +1,50 @@
+# Object
+
+A value can conform to an object IFF:
+
+- its `typeof` is `"object"`.
+- every key in the type exists in the value provided
+- the corresponding value for each key is the correc type
+
+## Usage
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Object({
+  name: T.String(),
+  age: T.Number(),
+}).conforms({ name: "John", age: 42 }); // true
+
+T.Object({
+  name: T.String(),
+  age: T.Number(),
+}).conforms(null); // false
+
+T.Object({
+  name: T.String(),
+  age: T.Number(),
+}).conforms({ name: "John", age: false }); // false
+```
+
+## Nested Objects
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Object({
+  name: T.Object({
+    first: T.String(),
+    last: T.String(),
+  }),
+  email: T.Regex(^[^\s@]+@[^\s@]+\.[^\s@]+$/),
+  phone: T.Nullable(T.string()),
+  address: T.Nullable(
+    T.Object({
+      street: T.String(),
+      apt: T.Nullable(T.String()),
+      zip: T.Union(T.String(), T.Integer()),
+    })
+  ),
+});
+```

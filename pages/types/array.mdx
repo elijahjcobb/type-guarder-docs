@@ -1,0 +1,37 @@
+# Array
+
+A value can conform to an array IFF:
+
+- its `typeof` is `"object"`
+- `Array.isArray` is `true`
+- all values in the array conform to the provided types
+- `Array.length` is greater than or equal to `minLength` (if provided)
+- `Array.length` is less than or equal to `maxLength` (if provided)
+
+## Usage
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Array(T.string()).conforms("Hello, world!"); // false
+T.Array(T.string()).conforms(["Hello, world!"]); // true
+T.Array(T.string()).conforms(["Hello, world!", "abc"]); // true
+T.Array(T.string()).conforms(["Hello, world!", false]); // false
+T.Array(T.string(), T.Boolean()).conforms(["Hello, world!", false]); // true
+```
+
+## Options
+
+```ts copy
+import { T } from "type-guarder";
+
+T.ArrayWithOptions({
+  types: [T.Number(), T.Boolean()],
+  options: { minLength: 1 },
+}).conforms([1, true]); // true
+
+T.ArrayWithOptions({
+  types: [T.Number(), T.Boolean()],
+  options: { minLength: 10 },
+}).conforms([1, true]); // false
+```

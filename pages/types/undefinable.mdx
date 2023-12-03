@@ -1,0 +1,17 @@
+# Undefinable
+
+Provide one type to the `Undefinable` function and it will return a type guard that will check if the value conforms to the specified type, or `undefined`.
+
+> Note, this type is just a [Union](/types/union) of the specified type and [Undefined](/types/undefined).
+
+## Usage
+
+```ts copy
+import { T } from "@elijahjcobb/type-guarder";
+
+T.Undefinable(T.Number()).conforms(undefined); // true
+T.Undefinable(T.Number()).conforms(3); // true
+T.Undefinable(T.Number()).conforms("Hello, world"); // false
+T.Undefinable(T.Number()).conforms(null); // false
+T.Undefinable(T.Number()).conforms(true); // false
+```

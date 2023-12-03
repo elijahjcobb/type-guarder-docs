@@ -1,0 +1,23 @@
+# Value
+
+This is a helpful type to verify that a value conforms to a specific value, not just a type.
+
+## Usage
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Value("abc").conforms("Hello, world!"); // false
+T.Value("abc").conforms("abc"); // true
+```
+
+## With Typing
+
+When using [assert()](/functions#assert) or [unwrap()](/functions#unwrap), if you want the type of the value to be narrowed, you can just add `as const` to the end of the value.
+
+```ts copy
+import { T } from "type-guarder";
+
+const v = T.Value("abc").assert("abc"); // v: 'string'
+const v = T.Value("abc" as const).assert("abc"); // v: 'abc'
+```

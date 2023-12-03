@@ -1,0 +1,15 @@
+{
+  "boolean": "Boolean",
+  "number": "Number",
+  "string": "String",
+  "regex": "Regex",
+  "null": "Null",
+  "undefined": "Undefined",
+  "union": "Union",
+  "nullable": "Nullable",
+  "undefinable": "Undefinable",
+  "optional": "Optional",
+  "value": "Value",
+  "array": "Array",
+  "object": "Object"
+}

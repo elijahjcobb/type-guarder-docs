@@ -1,0 +1,24 @@
+# Integer
+
+A value can conform to a integer IFF its `typeof` is `"number"` and it does not have any decimal places.
+
+## Usage
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Integer().conforms(123); // true
+T.Integer().conforms(3.14); // false
+T.Integer().conforms("Hello, world!"); // false
+```
+
+## Options
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Integer({ min: 10 }).conforms(3); // false
+T.Integer({ max: 4 }).conforms(3); // true
+T.Integer({ max: 4 }).conforms(3.14); // false
+T.Integer({ min: 2, max: 4 }).conforms(3); // true
+```

@@ -1,0 +1,17 @@
+# Optional
+
+Provide one type to the `Optional` function and it will return a type guard that will check if the value conforms to the specified type, `undefined`, or `null`.
+
+> Note, this type is just a [Union](/types/union) of the specified type, [Undefined](/types/undefined), and [Null](/types/null).
+
+## Usage
+
+```ts copy
+import { T } from "@elijahjcobb/type-guarder";
+
+T.Optional(T.Number()).conforms(undefined); // true
+T.Optional(T.Number()).conforms(null); // true
+T.Optional(T.Number()).conforms(3); // true
+T.Optional(T.Number()).conforms("Hello, world"); // false
+T.Optional(T.Number()).conforms(true); // false
+```

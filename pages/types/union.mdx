@@ -1,0 +1,26 @@
+# Union
+
+Provide `n` types to the `Union` function and it will return a type guard that will check if the value conforms to at least one of the provided types.
+
+> Note, this type is used internally for many other types like:
+
+- [Nullable](/types/nullable)
+- [Undefinable](/types/undefinable)
+- [Optional](/types/optional)
+
+## Usage
+
+```ts copy
+import { T } from "@elijahjcobb/type-guarder";
+
+T.Union(T.Number(), T.String()).conforms("Hello, world!"); // true
+T.Union(T.Number(), T.String()).conforms(3); // true
+T.Union(T.Number(), T.String()).conforms(null); // false
+T.Union(T.Null(), T.String()).conforms(null); // true
+T.Union(T.Number(), T.String()).conforms([]); // false
+T.Union(T.Number(), T.String()).conforms(true); // false
+
+T.Union(T.Integer(), T.Boolean(), T.String()).conforms(true); // true
+T.Union(T.Integer(), T.Boolean(), T.String()).conforms(3); // true
+T.Union(T.Integer(), T.Boolean(), T.String()).conforms(3.4); // false
+```

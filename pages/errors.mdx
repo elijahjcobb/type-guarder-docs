@@ -1,0 +1,54 @@
+# Errors
+
+When using the [Assert](/functions#assert) function, an error will be thrown if the value provided does not conform to the specified type. The error thrown will be an instance of `TError`.
+
+```ts copy
+import { T, TError } from "type-guarder";
+
+try {
+  T.string().assert(123);
+} catch (error) {
+  if (error instanceof TError) {
+    error.expectedType; // "string"
+    error.actualType; // "number"
+    error.value; // 123
+    error.message; // "The type of `123` is `number` and it should be `string`";
+  } else {
+    throw error;
+  }
+}
+```
+
+When an error occurs in a nested type like within an array or object, the error will also contain a trace of the path to the value that failed the type check.
+
+```ts copy
+import { T, TError } from "type-guarder";
+
+const checker = T.object({
+  name: T.object({
+    first: T.string(),
+    last: T.string(),
+  }),
+  age: T.Integer(),
+});
+
+try {
+  const { name, age } = checker.assert({
+    name: {
+      first: "John",
+      last: false,
+    },
+    age: 123,
+  });
+  console.log(`Hello ${name.first} ${name.last}! You are ${age} years old.`);
+} catch (error) {
+  if (error instanceof TError) {
+    error.expectedType; // "string"
+    error.actualType; // "boolean"
+    error.value; // false
+    error.message; // "The type of `false` at `name.last` is `boolean` and it should be `string`";
+  } else {
+    throw error;
+  }
+}
+```

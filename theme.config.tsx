@@ -1,17 +1,20 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import { ImNpm } from "react-icons/im";
+
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
-  project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
-  },
+  logo: <span>type-guarder</span>,
   chat: {
-    link: 'https://discord.com',
+    link: 'https://www.npmjs.com/package/type-guarder',
+    icon: <ImNpm size={24} color="#CC3534" />
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  project: {
+    link: 'https://github.com/elijahjcobb/type-guarder',
+  },
+  docsRepositoryBase: 'https://github.com/elijahjcobb/type-guarder-docs',
   footer: {
-    text: 'Nextra Docs Template',
+    text: 'type-guarder',
   },
 }
 

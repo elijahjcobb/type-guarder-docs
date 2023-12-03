@@ -1,0 +1,16 @@
+# Nullable
+
+Provide one type to the `Nullable` function and it will return a type guard that will check if the value conforms to the specified type, or `null`.
+
+> Note, this type is just a [Union](/types/union) of the specified type and [Null](/types/null).
+
+## Usage
+
+```ts copy
+import { T } from "@elijahjcobb/type-guarder";
+
+T.Nullable(T.Number()).conforms(null); // true
+T.Nullable(T.Number()).conforms(3); // true
+T.Nullable(T.Number()).conforms("Hello, world"); // false
+T.Nullable(T.Number()).conforms(true); // false
+```

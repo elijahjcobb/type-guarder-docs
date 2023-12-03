@@ -1,0 +1,21 @@
+# String
+
+A value can conform to a string IFF its `typeof` is `"string"`.
+
+## Usage
+
+```ts copy
+import { T } from "type-guarder";
+
+T.String().conforms("Hello, world!"); // true
+```
+
+## Options
+
+```ts copy
+import { T } from "type-guarder";
+
+T.String({ minLength: 10 }).conforms("abc"); // false
+T.String({ maxLength: 4 }).conforms("Hello, world!"); // false
+T.String({ minLength: 2, maxLength: 4 }).conforms("abc"); // true
+```

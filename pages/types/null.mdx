@@ -1,0 +1,15 @@
+# Null
+
+A value can conform to a boolean IFF it is `null`.
+
+> This base type isn't very helpful, but can be combined with [Union](/types/union) types to create more complex types. See [Nullable](/types/nullable) for an example.
+
+## Usage
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Null().conforms(null); // true
+T.Null().conforms(undefined); // false
+T.Null().conforms("Hello, world!"); // false
+```

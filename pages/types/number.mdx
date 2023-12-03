@@ -1,0 +1,21 @@
+# Number
+
+A value can conform to a number IFF its `typeof` is `"number"`.
+
+## Usage
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Number().conforms(123); // true
+```
+
+## Options
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Number({ min: 10 }).conforms(3); // false
+T.Number({ max: 4 }).conforms(3); // true
+T.Number({ min: 2, max: 4 }).conforms(3); // true
+```

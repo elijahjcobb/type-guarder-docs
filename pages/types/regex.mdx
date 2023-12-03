@@ -1,0 +1,15 @@
+# Regex
+
+A value can conform to a Regex IFF its `typeof` is `"string"` and it matches the `RegExp` provided.
+
+## Usage
+
+```ts copy
+import { T } from "type-guarder";
+
+const checker = T.Regex(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$);
+
+checker.conforms("jane@doe.com"); // true
+checker.conforms("janedoe.com"); // false
+checker.conforms(8); // false
+```

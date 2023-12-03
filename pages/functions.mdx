@@ -1,0 +1,54 @@
+# Functions
+
+`type-guarder` has three funcitions on all types that can be used to check the type of a value at runtime.
+
+## Assert
+
+```ts
+.assert(value: any): T
+```
+
+Check if the value provided conforms to the speicifed type. If it does, it will return the value with the correct typing. If not, it will throw a `TError`.
+
+**Example**
+
+```ts copy
+import { T } from "type-guarder";
+
+T.string().assert("Hello, world!"); // "Hello, world!"
+T.string().assert(123); // throw TError
+```
+
+## Unwrap
+
+```ts
+.unwrap(value: any): T | null
+```
+
+Check if the value provided conforms to the speicifed type. If it does, it will return the value with the correct typing. If not, return `null`.
+
+**Example**
+
+```ts copy
+import { T } from "type-guarder";
+
+T.string().unwrap("Hello, world!"); // "Hello, world!"
+T.string().unwrap(123); // null
+```
+
+## Conforms
+
+```ts
+.conforms(value: any): boolean
+```
+
+Returns a boolean denoting whether the value provided conforms to the specified type.
+
+**Example**
+
+```ts copy
+import { T } from "type-guarder";
+
+T.string().conforms("Hello, world!"); // true
+T.string().conforms(123); // false
+```

@@ -1,11 +1,63 @@
-# Introduction
- 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
+# Welcome to type-guarder!
 
-## What is Nextra?
+A **simple**, **powerful** and **flexible** runtime type checker for TypeScript.
 
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
+- Verify types at runtime
+- Automatically access typed values
+- Support for custom types
 
-## Documentation
+## tldr
 
-The documentation is available at [https://nextra.site](https://nextra.site).
+```ts copy
+import { T } from "type-guarder";
+
+const checker = T.Object({
+  name: T.Object({
+    first: T.String(),
+    last: T.String(),
+  }),
+  email: T.Regex(^[^\s@]+@[^\s@]+\.[^\s@]+$/),
+  phone: T.Nullable(T.string()),
+  address: T.Nullable(
+    T.Object({
+      street: T.String(),
+      apt: T.Nullable(T.String()),
+      zip: T.Union(T.String(), T.Integer()),
+    })
+  ),
+});
+
+// value will now be a typed object
+const value = checker.unwrap({
+  name: {
+    first: "Elijah",
+    last: "Cobb",
+  },
+  email: "elijah@elijahcobb.com",
+	phone: null,
+	address: {
+		street: "1234 Main St.",
+		apt: null,
+		zip: 12345
+	}
+});
+
+console.log(value.name.first); // Elijah
+
+```
+
+Check out the functions you can use with type-guarder:
+
+- [Assert](/functions#assert)
+- [Unwrap](/functions#unwrap)
+- [Conforms](/functions#conforms)
+
+Check out the built in types starting with [Boolean](/types/boolean).
+
+## Maintainer
+
+Elijah Cobb
+
+- [GitHub](https://github.com/elijahjcobb)
+- [Twitter](https://twitter.com/elijahjcobb)
+- [Portfolio](https://elijahcobb.dev)

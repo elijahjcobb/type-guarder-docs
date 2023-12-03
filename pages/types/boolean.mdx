@@ -1,0 +1,13 @@
+# Boolean
+
+A value can conform to a boolean IFF its `typeof` is `"boolean"`.
+
+## Usage
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Boolean().conforms(true); // true
+T.Boolean().conforms(false); // true
+T.Boolean().conforms("Hello, world!"); // false
+```
