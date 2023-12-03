@@ -7,7 +7,7 @@ Provide one type to the `Optional` function and it will return a type guard that
 ## Usage
 
 ```ts copy
-import { T } from "@elijahjcobb/type-guarder";
+import { T } from "type-guarder";
 
 T.Optional(T.Number()).conforms(undefined); // true
 T.Optional(T.Number()).conforms(null); // true

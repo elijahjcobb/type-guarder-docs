@@ -7,7 +7,7 @@ Provide one type to the `Undefinable` function and it will return a type guard t
 ## Usage
 
 ```ts copy
-import { T } from "@elijahjcobb/type-guarder";
+import { T } from "type-guarder";
 
 T.Undefinable(T.Number()).conforms(undefined); // true
 T.Undefinable(T.Number()).conforms(3); // true

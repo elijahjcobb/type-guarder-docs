@@ -11,7 +11,7 @@ Provide `n` types to the `Union` function and it will return a type guard that w
 ## Usage
 
 ```ts copy
-import { T } from "@elijahjcobb/type-guarder";
+import { T } from "type-guarder";
 
 T.Union(T.Number(), T.String()).conforms("Hello, world!"); // true
 T.Union(T.Number(), T.String()).conforms(3); // true
