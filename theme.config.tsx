@@ -34,6 +34,11 @@ const config: DocsThemeConfig = {
       <meta property="og:description" content="A simple, powerful and flexible runtime type checker for TypeScript." />
       <meta property="og:url" content="type-guarder.com" />
       <meta property="og:image" content="https://type-guarder.com/og.png" />
+      <script>
+        {/* @ts-expect-error */}
+        window.va = window.va || function () {(window.vaq = window.vaq || []).push(arguments)}
+      </script>
+      <script defer src="/_vercel/insights/script.js"></script>
     </>
 
   )
