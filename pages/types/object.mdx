@@ -48,3 +48,19 @@ T.Object({
   ),
 });
 ```
+
+## Options
+
+```ts copy
+import { T } from "type-guarder";
+
+T.Object(
+  {
+    name: T.String(),
+    age: T.Number(),
+  },
+  {
+    injective: true,
+  }
+).conforms({ name: "John", age: 42, anotherKey: "I shouldn't belong here." }); // false
+```
